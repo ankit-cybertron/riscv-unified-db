@@ -40,5 +40,12 @@ coverage
 tools/ruby-gems/udb/ext/z3/**/*.so
 tools/ruby-gems/udb/ext/z3/VERSION
 
+chroma_db/
+param_corpus.json
+param_analysis_corpus.json
+dependency_graph.json
+UDB_PARAMETER_DATABASE_REPORT.md
+.DS_Store
+tools/.DS_Store
 # emacs backup files
 *~
