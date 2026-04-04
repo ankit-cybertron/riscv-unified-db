@@ -1,3 +1,8 @@
+"""
+Phase 1: build_vector_db.py
+Parses parameter YAML schemas, builds a dependency graph, and encodes everything
+into a ChromaDB vector index for semantic retrieval.
+"""
 import argparse
 import json
 import re

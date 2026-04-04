@@ -1,3 +1,8 @@
+"""
+utils.py
+Shared utilities for parsing schemas, resolving $ref chains, and text normalization.
+Used by both the parameter parsing and spec chunking phases.
+"""
 import hashlib
 import re
 from typing import Any

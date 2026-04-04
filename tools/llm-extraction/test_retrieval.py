@@ -1,3 +1,8 @@
+"""
+test_retrieval.py
+Verifies the ChromaDB vector database maintains required Top-3 retrieval accuracy
+across different semantic categories.
+"""
 import argparse
 
 from config import logger, DB_DIR
