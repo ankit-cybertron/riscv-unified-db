@@ -1,5 +1,11 @@
-ruamel.yaml>=0.18.0
-pyyaml>=6.0.0
-tqdm>=4.66.0
-chromadb>=0.5.0
-sentence-transformers>=3.0.0
+# requirements.txt — RISC-V UDB LLM-extraction pipeline
+# Pin minor versions for reproducibility; bump deliberately on dependency audits.
+# pathlib is part of the Python 3.4+ standard library — no install needed.
+
+ruamel.yaml
+pyyaml
+tqdm
+chromadb
+sentence-transformers
+rich
+pandas
