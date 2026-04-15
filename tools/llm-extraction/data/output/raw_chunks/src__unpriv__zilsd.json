@@ -1,0 +1,606 @@
+{
+  "source_file": "src/unpriv/zilsd.adoc",
+  "total": 75,
+  "sentences": [
+    {
+      "text": "The Zilsd & Zclsd extensions provide load/store pair instructions for RV32, reusing the existing RV64 doubleword load/store instruction encodings.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0",
+      "line_range": [
+        3,
+        3
+      ]
+    },
+    {
+      "text": "Operands containing `src` for store instructions and `dest` for load instructions are held in aligned `x`-register pairs, i.e., register numbers must be even.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0",
+      "line_range": [
+        5,
+        5
+      ]
+    },
+    {
+      "text": "Use of misaligned (odd-numbered) registers for these operands is reserved.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0",
+      "line_range": [
+        5,
+        5
+      ]
+    },
+    {
+      "text": "Regardless of endianness, the lower-numbered register holds the low-order bits, and the higher-numbered register holds the high-order bits: e.g., bits 31:0 of an operand in Zilsd might be held in register `x14`, with bits 63:32 of that operand held in `x15`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0",
+      "line_range": [
+        7,
+        9
+      ]
+    },
+    {
+      "text": "The Zilsd extension adds the following RV32-only instructions:",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        14,
+        14
+      ]
+    },
+    {
+      "text": "| |RV32 |RV64 |Mnemonic |Instruction",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        16,
+        21
+      ]
+    },
+    {
+      "text": "|yes |no |ld rd, offset(rs1) |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        23,
+        26
+      ]
+    },
+    {
+      "text": "|yes |no |sd rs2, offset(rs1) |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        28,
+        31
+      ]
+    },
+    {
+      "text": "As the access size is 64-bit, accesses are only considered naturally aligned for effective addresses that are a multiple of 8.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        35,
+        37
+      ]
+    },
+    {
+      "text": "In this case, these instructions are guaranteed to not raise an address-misaligned exception.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        35,
+        37
+      ]
+    },
+    {
+      "text": "Even if naturally aligned, the memory access might not be performed atomically.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        35,
+        37
+      ]
+    },
+    {
+      "text": "If the effective address is a multiple of 4, then each word access is required to be performed atomically.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        39,
+        39
+      ]
+    },
+    {
+      "text": "The following table summarizes the required behavior:",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        41,
+        41
+      ]
+    },
+    {
+      "text": "| |Alignment |Word accesses guaranteed atomic? |Can cause misaligned trap? |8{nbsp}B |yes |no |4{nbsp}B not 8{nbsp}B |yes |yes |else |no | yes |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        43,
+        49
+      ]
+    },
+    {
+      "text": "To ensure resumable trap handling is possible for the load instructions, the base register must have its original value if a trap is taken.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        51,
+        53
+      ]
+    },
+    {
+      "text": "The other register in the pair can have been updated.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        51,
+        53
+      ]
+    },
+    {
+      "text": "This affects x2 for the stack pointer relative instruction and rs1 otherwise.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd)",
+      "line_range": [
+        51,
+        53
+      ]
+    },
+    {
+      "text": "Zclsd depends on Zilsd and Zca.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        58,
+        58
+      ]
+    },
+    {
+      "text": "It has overlapping encodings with Zcf and is thus incompatible with Zcf.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        58,
+        58
+      ]
+    },
+    {
+      "text": "Zclsd adds the following RV32-only instructions:",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        60,
+        60
+      ]
+    },
+    {
+      "text": "| |RV32 |RV64 |Mnemonic |Instruction",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        62,
+        67
+      ]
+    },
+    {
+      "text": "|yes |no |c.ldsp rd, offset(sp) |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        69,
+        72
+      ]
+    },
+    {
+      "text": "|yes |no |c.sdsp rs2, offset(sp) |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        74,
+        77
+      ]
+    },
+    {
+      "text": "|yes |no |c.ld rd', offset(rs1') |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        79,
+        82
+      ]
+    },
+    {
+      "text": "|yes |no |c.sd rs2', offset(rs1') |",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Compressed Load/Store pair instructions (Zclsd)",
+      "line_range": [
+        84,
+        87
+      ]
+    },
+    {
+      "text": "LD instructions with destination `x0` are processed as any other load, but the result is discarded entirely and x1 is not written.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Use of x0 as operand",
+      "line_range": [
+        93,
+        95
+      ]
+    },
+    {
+      "text": "For C.LDSP, usage of `x0` as the destination is reserved.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Use of x0 as operand",
+      "line_range": [
+        93,
+        95
+      ]
+    },
+    {
+      "text": "If using `x0` as `src` of SD or C.SDSP, the entire 64-bit operand is zero — i.e., register `x1` is not accessed.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Use of x0 as operand",
+      "line_range": [
+        97,
+        98
+      ]
+    },
+    {
+      "text": "C.LD and C.SD instructions can only use `x8-15`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Use of x0 as operand",
+      "line_range": [
+        100,
+        100
+      ]
+    },
+    {
+      "text": "For the purposes of RVWMO and exception handling, LD and SD instructions are considered to be misaligned loads and stores, with one additional constraint: an LD or SD instruction whose effective address is a multiple of 4 gives rise to two 4-byte memory operations.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        104,
+        107
+      ]
+    },
+    {
+      "text": "NOTE: This definition permits LD and SD instructions giving rise to exactly one memory access, regardless of alignment.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        109,
+        116
+      ]
+    },
+    {
+      "text": "If instructions with 4-byte-aligned effective address are decomposed into two 32b operations, there is no constraint on the order in which the operations are performed and each operation is guaranteed to be atomic.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        109,
+        116
+      ]
+    },
+    {
+      "text": "These decomposed sequences are interruptible.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        109,
+        116
+      ]
+    },
+    {
+      "text": "Exceptions might occur on subsequent operations, making the effects of previous operations within the same instruction visible.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        109,
+        116
+      ]
+    },
+    {
+      "text": "NOTE: Software should make no assumptions about the number or order of accesses these instructions might give rise to, beyond the 4-byte constraint mentioned above.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        118,
+        122
+      ]
+    },
+    {
+      "text": "For example, an interrupted store might overwrite the same bytes upon return from the interrupt handler.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Exception Handling",
+      "line_range": [
+        118,
+        122
+      ]
+    },
+    {
+      "text": "[insns-ld,reftext=\"Load doubleword to register pair, 32-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions",
+      "line_range": [
+        128,
+        128
+      ]
+    },
+    {
+      "text": "Synopsis:: Load doubleword to even/odd register pair, 32-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        130,
+        131
+      ]
+    },
+    {
+      "text": "Mnemonic:: ld rd, offset(rs1)",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        133,
+        134
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 7, name: 0x3, attr: ['LOAD'], type: 8}, {bits: 5, name: 'rd', attr: ['dest, dest[0]=0'], type: 2}, {bits: 3, name: 0x3, attr: ['width=D'], type: 8}, {bits: 5, name: 'rs1', attr: ['base'], type: 4}, {bits: 12, name: 'imm[11:0]', attr: ['offset[11:0]'], type: 3}, ]} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        136,
+        146
+      ]
+    },
+    {
+      "text": "Description:: Loads a 64-bit value into registers `rd` and `rd+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        148,
+        152
+      ]
+    },
+    {
+      "text": "The effective address is obtained by adding register rs1 to the sign-extended 12-bit offset.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        148,
+        152
+      ]
+    },
+    {
+      "text": "[insns-sd,reftext=\"Store doubleword from register pair, 32-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > ld",
+      "line_range": [
+        158,
+        158
+      ]
+    },
+    {
+      "text": "Synopsis:: Store doubleword from even/odd register pair, 32-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        161,
+        162
+      ]
+    },
+    {
+      "text": "Mnemonic:: sd rs2, offset(rs1)",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        164,
+        165
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 7, name: 0x23, attr: ['STORE'], type: 8}, {bits: 5, name: 'imm[4:0]', attr: ['offset[4:0]'], type: 3}, {bits: 3, name: 0x3, attr: ['width=D'], type: 8}, {bits: 5, name: 'rs1', attr: ['base'], type: 4}, {bits: 5, name: 'rs2', attr: ['src, src[0]=0'], type: 4}, {bits: 7, name: 'imm[11:5]', attr: ['offset[11:5]'], type: 3}, ]} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        167,
+        178
+      ]
+    },
+    {
+      "text": "Description:: Stores a 64-bit value from registers `rs2` and `rs2+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        180,
+        184
+      ]
+    },
+    {
+      "text": "The effective address is obtained by adding register rs1 to the sign-extended 12-bit offset.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        180,
+        184
+      ]
+    },
+    {
+      "text": "[insns-cldsp,reftext=\"Stack-pointer based load doubleword to register pair, 16-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > sd",
+      "line_range": [
+        190,
+        190
+      ]
+    },
+    {
+      "text": "Synopsis:: Stack-pointer based load doubleword to even/odd register pair, 16-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        193,
+        194
+      ]
+    },
+    {
+      "text": "Mnemonic:: c.ldsp rd, offset(sp)",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        196,
+        197
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 2, name: 0x2, type: 8, attr: ['C2']}, {bits: 5, name: 'imm', type: 3, attr: ['offset[4:3|8:6]']}, {bits: 5, name: 'rd', type: 2, attr: ['dest!=0, dest[0]=0']}, {bits: 1, name: 'imm', type: 3, attr: ['offset[5]']}, {bits: 3, name: 0x3, type: 8, attr: ['C.LDSP']}, ], config: {bits: 16}} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        199,
+        209
+      ]
+    },
+    {
+      "text": "Description:: Loads stack-pointer relative 64-bit value into registers `rd'` and `rd'+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        211,
+        213
+      ]
+    },
+    {
+      "text": "It computes its effective address by adding the zero-extended offset, scaled by 8, to the stack pointer, `x2`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        211,
+        213
+      ]
+    },
+    {
+      "text": "It expands to `ld rd, offset(x2)`. C.LDSP is only valid when rd{ne}x0; the code points with rd=x0 are reserved.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        211,
+        213
+      ]
+    },
+    {
+      "text": "[insns-csdsp,reftext=\"Stack-pointer based store doubleword from register pair, 16-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ldsp",
+      "line_range": [
+        219,
+        219
+      ]
+    },
+    {
+      "text": "Synopsis:: Stack-pointer based store doubleword from even/odd register pair, 16-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        222,
+        223
+      ]
+    },
+    {
+      "text": "Mnemonic:: c.sdsp rs2, offset(sp)",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        225,
+        226
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 2, name: 0x2, type: 8, attr: ['C2']}, {bits: 5, name: 'rs2', type: 4, attr: ['src, src[0]=0']}, {bits: 6, name: 'imm', type: 3, attr: ['offset[5:3|8:6]']}, {bits: 3, name: 0x7, type: 8, attr: ['C.SDSP']}, ], config: {bits: 16}} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        228,
+        237
+      ]
+    },
+    {
+      "text": "Description:: Stores a stack-pointer relative 64-bit value from registers `rs2'` and `rs2'+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        239,
+        241
+      ]
+    },
+    {
+      "text": "It computes an effective address by adding the zero-extended offset, scaled by 8, to the stack pointer, `x2`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        239,
+        241
+      ]
+    },
+    {
+      "text": "It expands to `sd rs2, offset(x2)`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        239,
+        241
+      ]
+    },
+    {
+      "text": "[insns-cld,reftext=\"Load doubleword to register pair, 16-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sdsp",
+      "line_range": [
+        247,
+        247
+      ]
+    },
+    {
+      "text": "Synopsis:: Load doubleword to even/odd register pair, 16-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        250,
+        251
+      ]
+    },
+    {
+      "text": "Mnemonic:: c.ld rd', offset(rs1')",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        253,
+        254
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 2, name: 0x0, type: 8, attr: ['C0']}, {bits: 3, name: 'rd`', type: 2, attr: ['dest, dest[0]=0']}, {bits: 2, name: 'imm', type: 3, attr: ['offset[7:6]']}, {bits: 3, name: 'rs1`', type: 4, attr: ['base']}, {bits: 3, name: 'imm', type: 3, attr: ['offset[5:3]']}, {bits: 3, name: 0x3, type: 8, attr: ['C.LD']}, ], config: {bits: 16}} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        256,
+        267
+      ]
+    },
+    {
+      "text": "Description:: Loads a 64-bit value into registers `rd'` and `rd'+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        269,
+        272
+      ]
+    },
+    {
+      "text": "It computes an effective address by adding the zero-extended offset, scaled by 8, to the base address in register rs1'.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        269,
+        272
+      ]
+    },
+    {
+      "text": "[insns-csd,reftext=\"Store doubleword from register pair, 16-bit encoding\"]",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.ld",
+      "line_range": [
+        278,
+        278
+      ]
+    },
+    {
+      "text": "Synopsis:: Store doubleword from even/odd register pair, 16-bit encoding",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        281,
+        282
+      ]
+    },
+    {
+      "text": "Mnemonic:: c.sd rs2', offset(rs1')",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        284,
+        285
+      ]
+    },
+    {
+      "text": "Encoding (RV32):: [wavedrom, ,svg] .... {reg: [ {bits: 2, name: 0x0, type: 8, attr: ['C0']}, {bits: 3, name: 'rs2`', type: 4, attr: ['src, src[0]=0']}, {bits: 2, name: 'imm', type: 3, attr: ['offset[7:6]']}, {bits: 3, name: 'rs1`', type: 4, attr: ['base']}, {bits: 3, name: 'imm', type: 3, attr: ['offset[5:3]']}, {bits: 3, name: 0x7, type: 8, attr: ['C.SD']}, ], config: {bits: 16}} ....",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        287,
+        298
+      ]
+    },
+    {
+      "text": "Description:: Stores a 64-bit value from registers `rs2'` and `rs2'+1`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        300,
+        304
+      ]
+    },
+    {
+      "text": "It computes an effective address by adding the zero-extended offset, scaled by 8, to the base address in register rs1'.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        300,
+        304
+      ]
+    },
+    {
+      "text": "It expands to `sd rs2', offset(rs1')`.",
+      "section": "Preamble > \"Zilsd\", \"Zclsd\" Extensions for Load/Store pair for RV32, Version 1.0 > Load/Store pair instructions (Zilsd) > Instructions > c.sd",
+      "line_range": [
+        300,
+        304
+      ]
+    }
+  ]
+}

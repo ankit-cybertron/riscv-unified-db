@@ -1,0 +1,30 @@
+{
+  "source_file": "src/unpriv/zmmul.adoc",
+  "total": 3,
+  "sentences": [
+    {
+      "text": "The `Zmmul` extension implements the multiplication subset of the M extension.",
+      "section": "Preamble > `Zmmul` Extension, Version 1.0",
+      "line_range": [
+        2,
+        7
+      ]
+    },
+    {
+      "text": "It adds all of the instructions defined in , namely: MUL, MULH, MULHU, MULHSU, and (for RV64 only) MULW.",
+      "section": "Preamble > `Zmmul` Extension, Version 1.0",
+      "line_range": [
+        2,
+        7
+      ]
+    },
+    {
+      "text": "The encodings are identical to those of the corresponding M-extension instructions. `M` implies `Zmmul`.",
+      "section": "Preamble > `Zmmul` Extension, Version 1.0",
+      "line_range": [
+        2,
+        7
+      ]
+    }
+  ]
+}
