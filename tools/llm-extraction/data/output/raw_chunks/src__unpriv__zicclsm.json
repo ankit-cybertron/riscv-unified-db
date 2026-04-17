@@ -19,7 +19,7 @@
       ]
     },
     {
-      "text": "It does not include any instructions in the various `Za*` extensions.",
+      "text": "It does not include any instructions in the various ext:Za*[] extensions.",
       "section": "Preamble > Zicclsm Extension for Main Memory Misaligned Accesses, Version 1.0",
       "line_range": [
         7,

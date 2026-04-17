@@ -67,7 +67,7 @@
       ]
     },
     {
-      "text": "The optional compressed instruction set described in can be added (forming RV32GC and RV64GC) to improve performance, code size, and energy efficiency, though with some additional hardware complexity.",
+      "text": "The optional compressed instruction-set extension ext:c[] can be added (forming RV32GC and RV64GC) to improve performance, code size, and energy efficiency, though with some additional hardware complexity.",
       "section": "Preamble > RV32/64G Instruction Set Listings",
       "line_range": [
         32,

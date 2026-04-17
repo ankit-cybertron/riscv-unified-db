@@ -1,6 +1,6 @@
 {
   "source_file": "src/profiles/rvi20.adoc",
-  "total": 39,
+  "total": 43,
   "sentences": [
     {
       "text": "The RVI20 profiles document the initial set of unprivileged instructions.",
@@ -107,11 +107,19 @@
       ]
     },
     {
-      "text": "Integer multiplication and division.",
+      "text": "extlink:m[] Integer multiplication and division.",
       "section": "Preamble > RVI20 Profiles > RVI20U32 Profile > RVI20U32 Optional Extensions",
       "line_range": [
         40,
         40
+      ]
+    },
+    {
+      "text": "extlink:a[] Atomic instructions.",
+      "section": "Preamble > RVI20 Profiles > RVI20U32 Profile > RVI20U32 Optional Extensions",
+      "line_range": [
+        42,
+        42
       ]
     },
     {
@@ -136,6 +144,14 @@
       "line_range": [
         48,
         51
+      ]
+    },
+    {
+      "text": "extlink:c[] Compressed Instructions.",
+      "section": "Preamble > RVI20 Profiles > RVI20U32 Profile > RVI20U32 Optional Extensions",
+      "line_range": [
+        53,
+        53
       ]
     },
     {
@@ -251,11 +267,19 @@
       ]
     },
     {
-      "text": "Integer multiplication and division.",
+      "text": "extlink:m[] Integer multiplication and division.",
       "section": "Preamble > RVI20 Profiles > RVI20U64 Profile > RVI20U64 Optional Extensions",
       "line_range": [
         98,
         98
+      ]
+    },
+    {
+      "text": "extlink:a[] Atomic instructions.",
+      "section": "Preamble > RVI20 Profiles > RVI20U64 Profile > RVI20U64 Optional Extensions",
+      "line_range": [
+        100,
+        100
       ]
     },
     {
@@ -280,6 +304,14 @@
       "line_range": [
         106,
         109
+      ]
+    },
+    {
+      "text": "extlink:c[] Compressed Instructions.",
+      "section": "Preamble > RVI20 Profiles > RVI20U64 Profile > RVI20U64 Optional Extensions",
+      "line_range": [
+        111,
+        111
       ]
     },
     {

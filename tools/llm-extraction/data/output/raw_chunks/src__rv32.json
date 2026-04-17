@@ -123,7 +123,7 @@
       ]
     },
     {
-      "text": "Except for the 5-bit immediates used in CSR instructions (), immediates are always sign-extended, and are generally packed towards the leftmost available bits in the instruction and have been allocated to reduce hardware complexity.",
+      "text": "Except for the 5-bit immediates used in , immediates are always sign-extended, and are generally packed towards the leftmost available bits in the instruction and have been allocated to reduce hardware complexity.",
       "section": "Preamble > RV32I Base Integer Instruction Set, Version 2.1 > Base Instruction Formats",
       "line_range": [
         70,

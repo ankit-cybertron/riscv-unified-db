@@ -749,14 +749,14 @@ class AsciiDocChunker:
     # -----------------------------------------------------------------------
 
     def _write_outputs(self) -> None:
-        """Write chunks_repo.json, parameter_dataset.csv, filter_stats.md."""
+        """Write chunks_repo.json, parameter_dataset.csv, and dump report data."""
         with open(CHUNKS_REPO_PATH, "w", encoding="utf-8") as fh:
             json.dump(self.repo_results, fh, indent=2)
 
-        # from pipeline.utils import generate_markdown_report
-        # md_text = generate_markdown_report(self.repo_dir, "unknown", self.report)
-        # with open(FILTER_STATS_PATH, "w", encoding="utf-8") as fh:
-        #     fh.write(md)
+        # ── Dump report dict for pipeline/export/reporter.py ──
+        report_data_path = OUTPUT_DIR / "adoc_report_data.json"
+        with open(report_data_path, "w", encoding="utf-8") as fh:
+            json.dump(self.report, fh, indent=2)
 
         with open(PARAMETER_DATASET_PATH, "w", newline="", encoding="utf-8") as fh:
             writer = csv.writer(fh)

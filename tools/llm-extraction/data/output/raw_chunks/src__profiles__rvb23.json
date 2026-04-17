@@ -83,7 +83,7 @@
       ]
     },
     {
-      "text": "Integer multiplication and division. - Atomic instructions. - Single-precision floating-point instructions. - Double-precision floating-point instructions. - Compressed instructions. - Bit-manipulation instructions. - CSR instructions.",
+      "text": "extlink:m[] Integer multiplication and division. - extlink:a[] Atomic instructions. - Single-precision floating-point instructions. - Double-precision floating-point instructions. - extlink:c[] Compressed instructions. - Bit-manipulation instructions. - extlink:zicsr[] CSR instructions.",
       "section": "Preamble > RVB23 Profiles > RVB23U64 Profile > RVB23U64 Mandatory Extensions",
       "line_range": [
         38,
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "text": "Non-temporal locality hints. - Integer conditional operations. - May-be-operations. - Compressed may-be-operations. - Additional compressed instructions. - Additional floating-point instructions. - Wait-on-reservation-set instructions.",
+      "text": "Non-temporal locality hints. - Integer conditional operations. - ext:zimop[] May-be-operations. - ext:zcmop[] Compressed may-be-operations. - ext:zcb[] Additional compressed instructions. - Additional floating-point instructions. - Wait-on-reservation-set instructions.",
       "section": "Preamble > RVB23 Profiles > RVB23U64 Profile > RVB23U64 Mandatory Extensions",
       "line_range": [
         69,
@@ -211,7 +211,7 @@
       ]
     },
     {
-      "text": "Half-precision floating-point.",
+      "text": "ext:zfhmin[] Half-precision floating-point.",
       "section": "Preamble > RVB23 Profiles > RVB23U64 Profile > RVB23U64 Optional Extensions > Expansion Options",
       "line_range": [
         123,

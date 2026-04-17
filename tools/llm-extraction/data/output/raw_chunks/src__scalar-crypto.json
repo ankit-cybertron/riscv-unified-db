@@ -1,6 +1,6 @@
 {
   "source_file": "src/scalar-crypto.adoc",
-  "total": 1065,
+  "total": 1075,
   "sentences": [
     {
       "text": "This chapter describes the scalar cryptography extension for RISC-V.",
@@ -1723,6 +1723,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > andn",
+      "line_range": [
+        1224,
+        1226
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > andn",
       "line_range": [
@@ -1984,6 +1992,14 @@
       "line_range": [
         1432,
         1437
+      ]
+    },
+    {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > orn",
+      "line_range": [
+        1439,
+        1441
       ]
     },
     {
@@ -2283,6 +2299,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rev8",
+      "line_range": [
+        1671,
+        1673
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rev8",
       "line_range": [
@@ -2344,6 +2368,14 @@
       "line_range": [
         1718,
         1723
+      ]
+    },
+    {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rol",
+      "line_range": [
+        1725,
+        1727
       ]
     },
     {
@@ -2419,6 +2451,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rolw",
+      "line_range": [
+        1778,
+        1780
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rolw",
       "line_range": [
@@ -2472,6 +2512,14 @@
       "line_range": [
         1825,
         1830
+      ]
+    },
+    {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > ror",
+      "line_range": [
+        1832,
+        1834
       ]
     },
     {
@@ -2555,6 +2603,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rori",
+      "line_range": [
+        1900,
+        1902
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rori",
       "line_range": [
@@ -2627,6 +2683,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > roriw",
+      "line_range": [
+        1955,
+        1957
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > roriw",
       "line_range": [
@@ -2696,6 +2760,14 @@
       "line_range": [
         2002,
         2007
+      ]
+    },
+    {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > rorw",
+      "line_range": [
+        2009,
+        2011
       ]
     },
     {
@@ -4499,6 +4571,14 @@
       ]
     },
     {
+      "text": "|Zbb (ext:zbb[]) |v1.0.0 |Ratified",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > xnor",
+      "line_range": [
+        3359,
+        3361
+      ]
+    },
+    {
       "text": "|Zbkb () |v1.0.0-rc4 |Ratified |",
       "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Instructions > xnor",
       "line_range": [
@@ -5772,7 +5852,7 @@
     },
     {
       "text": "| {check} | {check} | c.nop | {check} | {check} | c.addi | | {check} | c.addiw | {check} | {check} | c.lui | {check} | {check} | c.srli | {check} | {check} | c.srai | {check} | {check} | c.andi | {check} | {check} | c.sub | {check} | {check} | c.xor | {check} | {check} | c.or | {check} | {check} | c.and | | {check} | c.subw | | {check} | c.addw | {check} | {check} | c.slli | {check} | {check} | c.mv | {check} | {check} | c.add |",
-      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Data Independent Execution Latency Subset: Zkt > Zkt listings > RVC (Compressed)",
+      "section": "Preamble > Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1 > Data Independent Execution Latency Subset: Zkt > Zkt listings > ext:zca[] (Compressed)",
       "line_range": [
         4060,
         4076

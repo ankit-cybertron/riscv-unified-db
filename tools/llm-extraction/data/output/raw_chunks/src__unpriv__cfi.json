@@ -83,7 +83,7 @@
       ]
     },
     {
-      "text": "The RVC standard extension for compressed instructions provides unconditional jump and conditional branch instructions.",
+      "text": "The ext:zca[] standard extension for compressed instructions provides unconditional jump and conditional branch instructions.",
       "section": "Preamble > Control-flow Integrity (CFI)",
       "line_range": [
         31,
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "text": "The `C.JR` and `C.JALR` RVC instructions perform an unconditional control transfer to the address in register `rs1`.",
+      "text": "The `C.JR` and `C.JALR` instructions perform an unconditional control transfer to the address in register `rs1`.",
       "section": "Preamble > Control-flow Integrity (CFI)",
       "line_range": [
         31,

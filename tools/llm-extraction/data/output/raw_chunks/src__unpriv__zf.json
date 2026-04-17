@@ -27,7 +27,7 @@
       ]
     },
     {
-      "text": "The `F` extension adds floating-point registers and instructions for computation on single-precision floating-point values.",
+      "text": "The extension adds floating-point registers and instructions for computation on single-precision floating-point values.",
       "section": "Preamble > Scalar Floating-Point Extensions",
       "line_range": [
         6,
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "text": "The `D` and `Q` extensions widen those registers to hold double- and quad-precision floating-point values, respectively, and add instructions for computation on those formats.",
+      "text": "The and extensions widen those registers to hold double- and quad-precision floating-point values, respectively, and add instructions for computation on those formats.",
       "section": "Preamble > Scalar Floating-Point Extensions",
       "line_range": [
         6,
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "text": "The `Zfinx` and `Zdinx` extensions add computational instructions analogous to those in the `F` and `D` extensions, but they instead operate on floating-point numbers in the `x` registers.",
+      "text": "The and extensions add computational instructions analogous to those in the `F` and `D` extensions, but they instead operate on floating-point numbers in the `x` registers.",
       "section": "Preamble > Scalar Floating-Point Extensions",
       "line_range": [
         15,

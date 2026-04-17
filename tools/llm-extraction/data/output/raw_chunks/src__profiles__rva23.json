@@ -1,6 +1,6 @@
 {
   "source_file": "src/profiles/rva23.adoc",
-  "total": 94,
+  "total": 95,
   "sentences": [
     {
       "text": "The RVA23 profiles are intended to align implementations of RISC-V 64-bit application processors to allow binary software ecosystems to rely on a large set of guaranteed extensions and a small number of discoverable coarse-grain options.",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "text": "Integer multiplication and division. - Atomic instructions. - Single-precision floating-point instructions. - Double-precision floating-point instructions. - Compressed instructions. - Bit-manipulation instructions. - CSR instructions.",
+      "text": "extlink:m[] Integer multiplication and division. - extlink:a[] Atomic instructions. - Single-precision floating-point instructions. - Double-precision floating-point instructions. - extlink:c[] Compressed instructions. - Bit-manipulation instructions. - extlink:zicsr[] CSR instructions.",
       "section": "Preamble > RVA23 Profiles > RVA23U64 Profile > RVA23U64 Mandatory Extensions",
       "line_range": [
         30,
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "text": "These are implied by presence of F. - Base counters and timers. - Hardware performance counters. - Main memory regions with both the cacheability and coherence PMAs must support instruction fetch, and any instruction fetches of naturally aligned power-of-2 sizes up to min(ILEN,XLEN) (i.e., 32 bits for RVA23) are atomic. - Main memory regions with both the cacheability and coherence PMAs must support RsrvEventual. - Main memory regions with both the cacheability and coherence PMAs must support all atomics in the Zaamo extension. - Misaligned loads and stores to main memory regions with both the cacheability and coherence PMAs must be supported. - Reservation sets are contiguous, naturally aligned, and a maximum of 64 bytes. - Pause hint. - Cache blocks must be 64 bytes in size, naturally aligned in the address space. - Cache-block management instructions. - Cache-block prefetch instructions. - Cache-Block Zero Instructions. - Half-precision floating-point. - Data-independent execution latency.",
+      "text": "These are implied by presence of F. - Base counters and timers. - Hardware performance counters. - Main memory regions with both the cacheability and coherence PMAs must support instruction fetch, and any instruction fetches of naturally aligned power-of-2 sizes up to min(ILEN,XLEN) (i.e., 32 bits for RVA23) are atomic. - Main memory regions with both the cacheability and coherence PMAs must support RsrvEventual. - Main memory regions with both the cacheability and coherence PMAs must support all atomics in the Zaamo extension. - Misaligned loads and stores to main memory regions with both the cacheability and coherence PMAs must be supported. - Reservation sets are contiguous, naturally aligned, and a maximum of 64 bytes. - Pause hint. - Cache blocks must be 64 bytes in size, naturally aligned in the address space. - Cache-block management instructions. - Cache-block prefetch instructions. - Cache-Block Zero Instructions. - ext:zfhmin[] Half-precision floating-point. - Data-independent execution latency.",
       "section": "Preamble > RVA23 Profiles > RVA23U64 Profile > RVA23U64 Mandatory Extensions",
       "line_range": [
         30,
@@ -139,7 +139,15 @@
       ]
     },
     {
-      "text": "Compressed may-be-operations.",
+      "text": "ext:zimop[] may-be-operations.",
+      "section": "Preamble > RVA23 Profiles > RVA23U64 Profile > RVA23U64 Mandatory Extensions",
+      "line_range": [
+        76,
+        76
+      ]
+    },
+    {
+      "text": "ext:zcmop[] Compressed may-be-operations.",
       "section": "Preamble > RVA23 Profiles > RVA23U64 Profile > RVA23U64 Mandatory Extensions",
       "line_range": [
         78,
@@ -147,7 +155,7 @@
       ]
     },
     {
-      "text": "Additional compressed instructions.",
+      "text": "ext:zcb[] Additional compressed instructions.",
       "section": "Preamble > RVA23 Profiles > RVA23U64 Profile > RVA23U64 Mandatory Extensions",
       "line_range": [
         80,
