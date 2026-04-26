@@ -188,6 +188,7 @@ signals:
     - active-high
 
   # CSR field access-mode vocabulary.
+  # UDB schema types (from csr/schema.adoc) and prose equivalents.
   access_vocab:
     - read-only
     - write-only
@@ -195,6 +196,13 @@ signals:
     - writable
     - write-1-to-clear
     - write-1-to-set
+    # UDB csr_schema.json field type labels
+    - "RO"       # read-only
+    - "RO-H"     # read-only, hardware updates
+    - "RW"       # read-write
+    - "RW-R"     # read-write, restricted values (WARL equivalent)
+    - "RW-H"     # read-write, hardware updates
+    - "RW-RH"    # read-write, restricted + hardware updates
 
   # Normative intent vocabulary used in the general extract mode.
   normative_intent_vocab:
@@ -208,6 +216,24 @@ signals:
     - results in
     - is extended to
     - are extended to
+    # Atomic instruction ordering patterns (za.adoc, zalrsc.adoc, zaamo.adoc)
+    - cannot be observed
+    - is treated as
+    - are treated as
+    - are imposed
+    - no ordering constraint
+    - sequentially consistent
+    # Floating-point NaN-boxing patterns (d-st-ext.adoc, f-st-ext.adoc)
+    - are supported
+    - are guaranteed
+    - do not modify
+    - is naturally aligned
+    - are only guaranteed
+    # General behavioral constraints not captured by modals
+    - is defined analogously
+    - are defined analogously
+    - must write
+    - must read
 
 
 # ── 2. Drop signals ──────────────────────────────────────────────────────────
@@ -260,6 +286,13 @@ noise:
     - we proposed
     - "rationale:"
     - "introduction:"
+    # AsciiDoc table rows that survive the |=== block stripper when they span
+    # multiple lines (e.g. rv-32-64g.adoc opcode maps, CSR address maps).
+    # A pipe at position 0 after stripping means the chunker split mid-table.
+    - "| 15+^|"
+    - "| 8+|"
+    - "|inst["
+    - "4+^|funct7"
 
   # Soft-rationale patterns — rejected when no strong modal is present.
   soft_rationale_patterns:
