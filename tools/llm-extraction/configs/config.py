@@ -21,7 +21,7 @@ Core Responsibilities:
 
 Key Assumptions:
     - This file lives at llm-extraction/configs/config.py
-    - REPO_ROOT is always riscv-unified-db/ (4 levels up from this file)
+    - REPO_ROOT is always riscv-unified-db/ (3 levels up from this file)
     - All runtime artefacts are written under DATA_DIR, not alongside source
 
 Failure Modes:
@@ -51,7 +51,7 @@ logger = logging.getLogger("udb")
 
 CONFIGS_DIR  = Path(__file__).parent.resolve()          # llm-extraction/configs/
 TOOL_DIR     = CONFIGS_DIR.parent                       # llm-extraction/
-REPO_ROOT    = TOOL_DIR.parent.parent.parent            # riscv-unified-db/
+REPO_ROOT    = TOOL_DIR.parent.parent            # riscv-unified-db/
 
 DATA_DIR     = TOOL_DIR / "data"
 
